@@ -1,0 +1,117 @@
+$theme-colors: (
+        "primary": #454ade,
+        "secondary": #7079cf,
+        "dark": #333
+);
+$title-color: #2c497f;
+$primary: #454ade;
+$dark: #333;
+$link-color: $dark;
+
+body {
+  background-color: #eee;
+}
+.container {
+  @extend .mx-auto;
+  @extend .text-center;
+  @extend .p-1;
+  color: $dark;
+  width: fit-content;
+}
+
+.form {
+  @extend .container;
+  @extend .bg-secondary;
+  @extend .p-4;
+  @extend .rounded;
+  @extend .text-white;
+  @extend .font-weight-bold;
+  margin: auto;
+  max-width: fit-content!important;
+}
+
+.nav {
+  @extend .container;
+  @extend .font-weight-bold;
+  @extend .mt-2;
+  text-transform: uppercase;
+  border-bottom: 2px solid $primary;
+
+  li.active, li.active a {
+    color: $primary!important;
+  }
+}
+
+.main {
+  @extend .m-2;
+  @extend .mx-auto;
+  @extend .p-4;
+  @extend .rounded;
+  @extend .bg-primary;
+  width: fit-content;
+}
+
+.element {
+  @extend .font-weight-bold;
+  @extend .text-white;
+  @extend .text-center;
+}
+
+.button {
+  @extend .px-3;
+  @extend .py-1;
+  @extend .rounded;
+  @extend .bg-light;
+  @extend .font-weight-bold;
+  @extend .text-secondary;
+  @extend .border-0;
+  user-select: none;
+  -webkit-user-select: none;
+  max-width: fit-content;
+}
+
+.input {
+  @extend .rounded;
+  @extend .border-0;
+  @extend .p-1;
+  @extend .text-center;
+  width: 25%;
+  min-width: 11em;
+}
+
+.title {
+  @extend .font-weight-bold;
+  @extend .text-center;
+  @extend .text-primary;
+  font-size: 1.2em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+label {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+//a:hover {
+//  text-decoration: none!important;
+//}
+
+.nav-item a {
+  user-select: none;
+  -webkit-user-select: none;
+  &:hover {
+    text-decoration: none!important;
+  }
+}
+
+.tablehead .col span{
+  font-weight: bold;
+}
+
+*::selection {
+  color: white;
+  background-color: $primary;
+}
+
+@import "../../bootstrap/scss/bootstrap";

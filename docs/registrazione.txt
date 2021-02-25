@@ -1,0 +1,25 @@
+title Fase di registrazione 
+
+
+actor Attore
+participant "signup.html" as Front
+participant "registra.php" as Back
+database "DataBase" as DB
+
+Attore->Front: nome, cognome, email, password
+Front--#red>Attore: password troppo corta
+Front--#red>Attore: campi vuoti
+Front->Front: SHA1 password
+Front->>Back: nome, cognome, email, password
+Back->Back: sha256 password
+Back->DB: select email
+DB->Back: risultato
+Back--#red>>Front: utente già registrato
+Front-->Attore: utente già registrato
+Back->DB: insert nome, cognome, email, password
+DB->Back: risultato
+Back--#red>>Front: Errore DB
+Front-->Attore: Errore DB
+Back--#green>>Front: Registrazione effettuata con successo
+Front-->Attore: Registrazione effettuata con successo
+note over Attore, Front: Se ha effettuato la registrazione, l'utente viene reindirizzato alla homepage.

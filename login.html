@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | HomePage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu" />
+</head>
+<body>
+<nav class="nav navbar navbar-expand-lg navbar-light" id="nav">
+    <a class="navbar-brand" href="#">LOGIN</a>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item mx-3" id="nav_home">
+                <a  href="index.html">Home</a>
+            </li>
+            <li class="nav-item mx-3" id="nav_data">
+                <a href="data.html">Dati</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-3" id="nav_login">
+                <a href="login.html">Login</a>
+            </li>
+            <li class="nav-item mx-3" id="nav_signin">
+                <a href="signup.html">Registrati</a>
+            </li>
+            <li class="nav-item mx-3" id="nav_user">
+                Utente
+            </li>
+            <li class="nav-item mx-3" id="nav_logout">
+                <a href="logout.html">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div>
+    <div class="container title">
+        LOGIN AL LOGIN
+    </div>
+    <form name="signin">
+        <div id="container" class="form">
+            <div class="row my-1">
+                <div class="col-4 text-left">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-4">
+                    <input class="rounded border-0" name="email" id="email" type="email" required>
+                </div>
+            </div>
+            <div class="row my-1 text-center">
+                <div class="col-4 text-left">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-4">
+                    <input class="rounded border-0" name="password" id="password" type="password" required>
+                </div>
+            </div>
+            <div class="row my-1 text-center">
+                <div class="col-2">
+                    <input class="rounded border-0" name="restaconnesso" id="restaconnesso" type="checkbox" required>
+                </div>
+                <div class="col text-left">
+                    <label for="restaconnesso">Resta connesso</label>
+                </div>
+            </div>
+            <div class="row my-1 text-center mx-auto">
+                <div class="col pt-3">
+                    <input class="button" name="submitBtn" id="submitBtn" value="Login!" type="button">
+                </div>
+            </div>
+            <div class="alert alert-danger mt-3" style="display: none" id="error"></div>
+            <div class="alert alert-info mt-3" style="display: none" id="info"></div>
+        </div>
+    </form>
+</div>
+
+<script src="js/cookie.js"></script>
+<script src="js/core.js"></script>
+<script src="js/sha.js"></script>
+<script src="js/login.js"></script>
+<script>
+    $('#submitBtn').click(function () {
+        login(document.forms.signin);
+    });
+    $('#resetBtn').click(function () {
+        $('#error').hide();
+        $('#info').hide();
+    });
+</script>
+</body>
+</html>

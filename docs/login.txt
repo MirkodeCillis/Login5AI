@@ -1,0 +1,22 @@
+title Fase di login 
+
+
+actor Attore
+participant "login.html" as Front
+participant "login.php" as Back
+database "DataBase" as DB
+
+Attore->Front: email, password
+Front->Front: SHA1 password
+Front->>Back: email, password
+Back->Back: sha256 password
+Back->DB: select email, password
+DB->Back: risultato
+Back--#red>>Front: utente inesistente
+Front-->Attore: utente inesistente
+Back--#red>>Front: Password errata
+Front-->Attore: Password errata
+Back--#green>>Front: Token JWT
+Front->Front: Token come Cookie o Local Storage
+Front-->Attore: Accesso eseguito con successo
+note over Attore, Front: Se ha effettuato l'accesso, l'utente viene reindirizzato alla homepage.

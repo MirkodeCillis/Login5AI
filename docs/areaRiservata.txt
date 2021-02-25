@@ -1,0 +1,19 @@
+title Accesso all'area riservata
+
+
+actor Attore
+participant "data.html" as Front
+participant "data.php" as Back
+participant validateJWT.php
+participant "elenco_articoli.php" as Dati
+
+Front->>Back: Token
+Back->validateJWT.php: Token
+validateJWT.php-#red>Back: Token non valido
+Back->>Front: Token non valido
+Front->Attore: Accesso negato
+validateJWT.php-#green>Back: Token valido
+Back->Dati: Richiesta dati
+Dati->Back: Dati
+Back->>Front: Dati
+Front->Attore: Dati
